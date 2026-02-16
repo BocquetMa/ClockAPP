@@ -46,4 +46,24 @@ public class Alarme {
         if (minute < 0 || minute > 59) throw new ExceptionMauvaiseMinute(minute);
         valeur = (short)(heure * 60 + minute);
     }
+
+    public void moins1Minute(){
+        if (valeur > 0) valeur --;
+        else valeur = 1439;
+    }
+
+    public void moins1Heure(){
+        valeur -= 60;
+        if (valeur < 0 ) valeur += 1440;
+    }
+
+    public void plus1Minute(){
+        if (valeur < 1440) valeur ++;
+        else valeur = 0;
+    }
+
+    public void plus1Heure(){
+        valeur += 60;
+        if (valeur > 1440) valeur += 1440;
+    }
 }
