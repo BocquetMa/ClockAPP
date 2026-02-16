@@ -6,5 +6,5 @@ public interface Liste<Chose> {
     void ajoute(Chose valeur);
     void retire(int index);
     Chose element(int index);
-    boolean contient(int valeur);
+    boolean contient(Chose valeur);
 }
