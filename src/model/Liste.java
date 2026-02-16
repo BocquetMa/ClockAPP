@@ -2,7 +2,7 @@ package model;
 
 public interface Liste<Chose> {
     boolean estVide();
-    int taill();
+    int taille();
     void ajoute(Chose valeur);
     void retire(int index);
     Chose element(int index);
