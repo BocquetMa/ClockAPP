@@ -1,5 +1,8 @@
 package model;
 
+import exception.ExceptionMauvaiseHeure;
+import exception.ExceptionMauvaiseMinute;
+
 public class Alarme {
 
     /**
@@ -7,7 +10,7 @@ public class Alarme {
      */
     short valeur;
 
-    public Alarme(int heure, int minute) throws ExceptionMauvaiseMinute, ExceptionMauvaiseHeure{
+    public Alarme(int heure, int minute) throws ExceptionMauvaiseMinute, ExceptionMauvaiseHeure {
         change(heure, minute);
     }
 

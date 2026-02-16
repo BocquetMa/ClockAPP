@@ -1,8 +1,8 @@
 package appli;
 
 import model.Alarme;
-import model.ExceptionMauvaiseHeure;
-import model.ExceptionMauvaiseMinute;
+import exception.ExceptionMauvaiseHeure;
+import exception.ExceptionMauvaiseMinute;
 
 public class Essai {
 
@@ -17,7 +17,7 @@ public class Essai {
                 System.err.println(emh);
             }
             try {
-                a.changeMinute(70);
+                a.changeMinute(40);
                 System.out.println(a);
             } catch (ExceptionMauvaiseMinute emm){
                 System.err.println(emm);
