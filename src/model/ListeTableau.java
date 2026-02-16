@@ -22,13 +22,22 @@ public class ListeTableau<Chose> implements Liste<Chose> {
     }
 
     @Override
-    public void ajoute(Chose valeur) {
+    public void ajoute(Chose valeur) throws ExceptionListePleine{
+        if (nbElem >= contenu.length){
+            throw new ExceptionListePleine(contenu.length);
+        }
         contenu[nbElem++] = valeur; // équivaut à contenu[nbElem] = valeur; nbElem+=1;
         //ou alors contenu[++nbElem] = valeur; // équivaut à nbElem += 1 ; contenu[nbElem] = valeur;
     }
 
     @Override
-    public void retire(int index) {
+    public void retire(int index) throws ExceptionIndexInvalide, ExceptionListeVide{
+        if (estVide()){
+            throw new ExceptionListeVide();
+        }
+        if (index < 0 || index >= nbElem){
+            throw new ExceptionIndexInvalide(index, nbElem);
+        }
         int indexActuel, ancienIndex;
         for(ancienIndex = (indexActuel = index) + 1; ancienIndex < nbElem; ancienIndex++, indexActuel++){
             contenu[indexActuel] = contenu[ancienIndex];
@@ -37,7 +46,13 @@ public class ListeTableau<Chose> implements Liste<Chose> {
     }
 
     @Override
-    public Chose element(int index) {
+    public Chose element(int index) throws ExceptionIndexInvalide, ExceptionListeVide {
+        if (estVide()){
+            throw new ExceptionListeVide();
+        }
+        if (index < 0 || index >= nbElem){
+            throw new ExceptionIndexInvalide(index, nbElem);
+        }
         return (Chose)contenu[index];
     }
 
